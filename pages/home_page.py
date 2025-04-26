@@ -15,7 +15,7 @@ class HomePageScooter(BasePage):
 
     @allure.step('Ждём загрузки главной страницы Самокат')
     def wait_for_load_home_page(self):
-        self.wait_for_element(HomePageLocators.PANEL_HOME_FIRST_PART)
+        self.find_element(HomePageLocators.PANEL_HOME_FIRST_PART)
 
     @allure.step('Нажимаем на кнопку "Да все привыкли"')
     def click_cookie_button(self):
@@ -33,7 +33,7 @@ class HomePageScooter(BasePage):
 
     @allure.step('Ждём загрузки кнопки "Заказать" внизу страницы')
     def wait_for_load_down_button_order(self):
-        self.wait_for_element(HomePageLocators.BUTTON_ORDER_ON_BOTTOM)
+        self.find_element(HomePageLocators.BUTTON_ORDER_ON_BOTTOM)
 
     @allure.step('Нажимаем на кнопку "Заказать" внизу страницы')
     def click_button_order_bottom(self):
@@ -49,15 +49,15 @@ class HomePageScooter(BasePage):
 
     @allure.step('Ждём загрузки ответа на вопрос')
     def wait_for_load_info(self, locator):
-        self.wait_for_element(locator)
+        self.find_element(locator)
 
     @allure.step('Ждём загрузки вопроса на странице')
     def wait_for_load_question(self, locator):
-        self.wait_for_element(locator)
+        self.find_element(locator)
 
     @allure.step('Ждём загрузки элемента')
     def wait_for_load_element(self, locator):
-        self.wait_for_element(locator)
+        self.find_element(locator)
 
     @allure.step('Получаем тест ответа на вопрос')
     def get_info_text(self, locator):

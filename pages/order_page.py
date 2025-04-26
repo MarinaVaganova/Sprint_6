@@ -15,7 +15,7 @@ class OrderPageScooter(BasePage):
 
     @allure.step('Ждём загрузки страницы заказа')
     def wait_for_load_order_page(self):
-        self.wait_for_element(OrderPageLocators.PANEL_ORDER)
+        self.find_element(OrderPageLocators.PANEL_ORDER)
 
     @allure.step("Вводим имя")
     def enter_first_name(self, text):
@@ -75,7 +75,7 @@ class OrderPageScooter(BasePage):
 
     @allure.step("Ждём загрузки окна подтверждения заказа")
     def wait_for_load_confirmation_order(self):
-        self.wait_for_element(OrderPageLocators.PANEL_CONFIRMATION_TO_ORDER)
+        self.find_element(OrderPageLocators.PANEL_CONFIRMATION_TO_ORDER)
 
     @allure.step('Нажимаем "Да" чтобы подтвердить заказ')
     def click_button_yes_to_confirm_order(self):
@@ -83,11 +83,11 @@ class OrderPageScooter(BasePage):
 
     @allure.step("Ждём загрузки окна об успешном заказе")
     def wait_for_load_successful_order(self):
-        self.wait_for_element(OrderPageLocators.PANEL_SUCCESSFUl_ORDER)
+        self.find_element(OrderPageLocators.PANEL_SUCCESSFUl_ORDER)
 
     @allure.step('Ждём загрузки элемента')
     def wait_for_load_element(self, locator):
-        self.wait_for_element(locator)
+        self.find_element(locator)
 
     @allure.step('Скроллим до нужного элемента')
     def scroll_to_element(self, locator):

@@ -18,9 +18,6 @@ class BasePage:
     def scroll_into_view(self, locator):
         self.driver.execute_script("arguments[0].scrollIntoView()", locator)
 
-    def wait_for_element(self, locator, timeout=20):
-        return WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located(locator))
-
     def click_element(self, locator, timeout=10):
         self.find_element(locator, timeout).click()
 

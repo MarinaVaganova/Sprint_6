@@ -35,7 +35,7 @@ class TestOrderPage:
         order_page.enter_second_name(second_name)
         order_page.enter_address(address)
         order_page.enter_metro_station(metro_station)
-        order_page.wait_for_element(metro_selection)
+        order_page.find_element(metro_selection)
         order_page.choose_metro_station(metro_selection)
         order_page.enter_phone_number(phone_number)
         order_page.click_button_next()
