@@ -62,7 +62,3 @@ class HomePageScooter(BasePage):
     @allure.step('Получаем тест ответа на вопрос')
     def get_info_text(self, locator):
         return self.find_element(locator).text
-
-    @allure.step("Получаем текущий адрес страницы")
-    def get_my_current_url(self):
-        self.get_current_url()
