@@ -18,12 +18,6 @@ class BasePage:
     def scroll_into_view(self, locator):
         self.driver.execute_script("arguments[0].scrollIntoView()", locator)
 
-    def click_element(self, locator, timeout=10):
-        self.find_element(locator, timeout).click()
-
-    def enter_text1(self, locator, text, timeout=10):
-        self.find_element(locator, timeout).send_keys(text)
-
     def panel_confirm_order_is_displayed(self, locator):
         panel_confirm_order = WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located(locator))
         return panel_confirm_order.is_displayed()

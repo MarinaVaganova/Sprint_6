@@ -26,22 +26,12 @@ class HomePageScooter(BasePage):
         element = self.find_element(HomePageLocators.PANEL_IMPORTANT_QUESTIONS)
         self.scroll_into_view(element)
 
-    @allure.step('Скроллим до кнопки "Заказать" внизу страницы')
-    def scroll_down_to_button_order(self):
-        element = self.find_element(HomePageLocators.BUTTON_ORDER_ON_BOTTOM)
-        self.scroll_into_view(element)
-
-    @allure.step('Ждём загрузки кнопки "Заказать" внизу страницы')
-    def wait_for_load_down_button_order(self):
-        self.find_element(HomePageLocators.BUTTON_ORDER_ON_BOTTOM)
-
-    @allure.step('Нажимаем на кнопку "Заказать" внизу страницы')
-    def click_button_order_bottom(self):
-        self.find_element(HomePageLocators.BUTTON_ORDER_ON_BOTTOM).click()
-
-    @allure.step('Нажимаем на кнопку "Заказать" вверху страницы')
-    def click_button_order_on_header(self):
-        self.find_element(HomePageLocators.BUTTON_ORDER_ON_HEADER).click()
+    @allure.step('Нажимаем на кнопку "Заказать"')
+    def click_button_order(self, button):
+        if button == 'top':
+            self.find_element(HomePageLocators.BUTTON_ORDER_ON_HEADER).click()
+        elif button == 'bottom':
+            self.find_element(HomePageLocators.BUTTON_ORDER_ON_BOTTOM).click()
 
     @allure.step('Нажимаем на нужный вопрос')
     def click_question(self, locator):
@@ -53,10 +43,6 @@ class HomePageScooter(BasePage):
 
     @allure.step('Ждём загрузки вопроса на странице')
     def wait_for_load_question(self, locator):
-        self.find_element(locator)
-
-    @allure.step('Ждём загрузки элемента')
-    def wait_for_load_element(self, locator):
         self.find_element(locator)
 
     @allure.step('Получаем тест ответа на вопрос')

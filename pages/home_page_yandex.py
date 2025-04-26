@@ -11,7 +11,3 @@ class HomePageYandex(BasePage):
     @allure.step('Ждём загрузки главной страницы Яндекс.Дзен')
     def wait_for_load_home_page(self):
         self.find_element(HomePageYandexLocators.NEWS_CONTENT_YANDEX)
-
-    @allure.step("Получаем текущий адрес страницы")
-    def get_my_current_url(self):
-        self.get_current_url()

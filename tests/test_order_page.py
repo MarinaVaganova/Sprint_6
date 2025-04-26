@@ -11,26 +11,21 @@ class TestOrderPage:
     @allure.title('Позитивная проверка заказа самоката с двумя наборами данных')
     @pytest.mark.parametrize(
         'first_name, second_name, address, metro_station, metro_selection, phone_number, delivery_date, date_selection,'
-        'rental_period, scooter_color, courier_comment, location',
+        'rental_period, scooter_color, courier_comment, button',
         [(
                 data['first_name'], data['second_name'], data['address'], data['metro_station'],
                 data['metro_selection'],
                 data['phone_number'], data['delivery_date'], data['date_selection'], data['rental_period'],
-                data['scooter_color'], data['courier_comment'], data['location']
+                data['scooter_color'], data['courier_comment'], data['button']
         ) for data in order_data]
     )
     def test_make_an_order(self, driver, open_home_page, first_name, second_name, address,
                            metro_station, metro_selection, phone_number, delivery_date, date_selection,
-                           rental_period, scooter_color, courier_comment, location):
+                           rental_period, scooter_color, courier_comment, button):
         order_page = OrderPageScooter(driver)
         home_page = HomePageScooter(driver)
         home_page.click_cookie_button()
-        if location == 'top':
-            home_page.click_button_order_on_header()
-        elif location == 'bottom':
-            home_page.scroll_down_to_button_order()
-            home_page.wait_for_load_down_button_order()
-            home_page.click_button_order_bottom()
+        home_page.click_button_order(button)
         order_page.enter_first_name(first_name)
         order_page.enter_second_name(second_name)
         order_page.enter_address(address)

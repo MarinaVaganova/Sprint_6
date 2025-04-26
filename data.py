@@ -44,7 +44,7 @@ order_data = [
         'rental_period': OrderPageLocators.OPTION_RENTAL_PERIOD_ONE_DAY,
         'scooter_color': OrderPageLocators.CHECKBOX_BLACK_COLOR,
         'courier_comment': 'Тест',
-        'location': 'top'
+        'button': 'top'
     },
     {
         'first_name': 'Марина',
@@ -58,6 +58,6 @@ order_data = [
         'rental_period': OrderPageLocators.OPTION_RENTAL_PERIOD_THREE_DAY,
         'scooter_color': OrderPageLocators.CHECKBOX_GREY_COLOR,
         'courier_comment': 'Тест',
-        'location': 'bottom'
+        'button': 'bottom'
     }
 ]
