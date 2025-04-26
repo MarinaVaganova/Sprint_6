@@ -4,6 +4,7 @@ import pytest
 from pages.home_page_yandex import HomePageYandex
 from pages.order_page import OrderPageScooter
 from pages.home_page import HomePageScooter
+from data import URLCollection
 
 
 class TestLogoNavigation:
@@ -14,7 +15,7 @@ class TestLogoNavigation:
         home_page = HomePageScooter(driver)
         home_page.wait_for_load_home_page()
         actual_result = order_page.get_current_url()
-        expected_result = 'https://qa-scooter.praktikum-services.ru/'
+        expected_result = URLCollection.SCOOTER_HOME_PAGE
         assert actual_result == expected_result, f'Ожидаемый адрес: {actual_result}, но получили: {expected_result}'
 
     @allure.title('Проверка перехода на главную страницу "Дзена" при нажатии на логотип Яндекса')
@@ -25,5 +26,5 @@ class TestLogoNavigation:
         home_page_yandex.switch_to_new_window()
         home_page_yandex.wait_for_load_home_page()
         actual_result = home_page_yandex.get_current_url()
-        expected_result = 'https://dzen.ru/?yredirect=true'
+        expected_result = URLCollection.YANDEX_HOME_PAGE
         assert actual_result == expected_result, f'Ожидаемый адрес: {actual_result}, но получили: {expected_result}'
